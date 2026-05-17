@@ -4,18 +4,24 @@ function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleLogin = async () => {
+ const handleLogin = async () => {
 
   try {
 
-    const response = await axios.get(
-      "http://localhost:5000"
+    const response = await axios.post(
+      "http://localhost:5000/login",
+      {
+        email,
+        password,
+      }
     );
 
     console.log(response.data);
 
   } catch (error) {
+
     console.log(error);
+
   }
 
 };
